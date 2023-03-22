@@ -1,0 +1,50 @@
+@import "../styles.scss";
+
+.weather {
+  background-color: $blue2;
+  width: 450px;
+  height: 700px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px $shadow-dark;
+
+  &--upper {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &-data {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .location {
+        color: #fff;
+        text-align: center;
+        font-size: 1.2em;
+      }
+
+      .temperature {
+        color: #fff;
+        text-align: center;
+        font-size: 4em;
+        font-weight: 900;
+      }
+    }
+  }
+}
