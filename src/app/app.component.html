@@ -5,9 +5,59 @@
 
     <div class="weather--upper-data">
       <div class="location">Philippines</div>
-      <div class="temperature">{{ 14.4 | number : "1.0-0" }}</div>
+      <div class="temperature">{{ 14.4 | number : "1.0-0" }}&#8451;</div>
     </div>
   </div>
 
-  <div class="weather--lower"></div>
+  <div class="weather--lower">
+    <div class="weather--lower-label">
+      <h2>More Information</h2>
+    </div>
+
+    <div class="weather--lower-info">
+      <div class="info--content">
+        <div class="info--content-image">
+          <img src="../assets/cold-temp.png" alt="cold temperature" />
+          <span>min</span>
+        </div>
+
+        <div class="info--content-value">
+          <span>10&#8451;</span>
+        </div>
+      </div>
+
+      <div class="info--content">
+        <div class="info--content-image">
+          <img src="../assets/hot-temp.png" alt="cold temperature" />
+          <span>max</span>
+        </div>
+
+        <div class="info--content-value">
+          <span>30&#8451;</span>
+        </div>
+      </div>
+
+      <div class="info--content">
+        <div class="info--content-image">
+          <img src="../assets/UVRay.png" alt="cold temperature" />
+          <span>UV Ray</span>
+        </div>
+
+        <div class="info--content-value">
+          <span>77%</span>
+        </div>
+      </div>
+
+      <div class="info--content">
+        <div class="info--content-image">
+          <img src="../assets/rain.png" alt="cold temperature" />
+          <span>rain</span>
+        </div>
+
+        <div class="info--content-value">
+          <span>11km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

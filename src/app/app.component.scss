@@ -47,4 +47,40 @@
       }
     }
   }
+
+  &--lower {
+    width: 100%;
+    height: 50%;
+    color: #fff;
+    padding: 20px;
+
+    &-label {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    &-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      height: 85%;
+      background-color: $shadow-light;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+
+      .info--content {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &-image {
+          width: 50px;
+          text-align: center;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
