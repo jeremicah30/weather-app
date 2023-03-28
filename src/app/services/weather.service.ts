@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
+import { WeatherData } from '../models/weather.models';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +10,22 @@ import { Injectable } from '@angular/core';
 export class WeatherService {
   constructor(private http: HttpClient) {}
 
-  getWeatherData(cityName: string) {
-    this.http.get;
+  getWeatherData(cityName: string): Observable<WeatherData> {
+    return this.http.get<WeatherData>(environment.weatherApiBaseUrl, {
+      // Add Headers and Params using set() method
+      headers: new HttpHeaders()
+        .set(
+          environment.XRapidAPIHostHeaderName,
+          environment.XRapidAPIHostHeaderValue
+        )
+        .set(
+          environment.XRapidAPIKeyHeaderName,
+          environment.XRapidAPIKeyHeaderValue
+        ),
+      params: new HttpParams()
+        .set('location', cityName)
+        .set('u', 'c')
+        .set('format', 'json'),
+    });
   }
 }
