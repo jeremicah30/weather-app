@@ -1,11 +1,43 @@
-<div class="weather">
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input
+      type="text"
+      placeholder="Search City"
+      name="city"
+      [(ngModel)]="cityName"
+    />
+  </form>
+</div>
+
+<div class="weather" *ngIf="weatherData">
   <div class="weather--upper">
-    <img src="../assets/hot-bg.jpg" alt="Hot background" *ngIf="14 > 15" />
-    <img src="../assets/cold-bg.jpg" alt="Cold background" *ngIf="14 <= 15" />
+    <img
+      src="../assets/hot-bg.jpg"
+      alt="Hot background"
+      *ngIf="weatherData.current_observation.condition.temperature > 15"
+    />
+    <img
+      src="../assets/cold-bg.jpg"
+      alt="Cold background"
+      *ngIf="weatherData.current_observation.condition.temperature <= 15"
+    />
 
     <div class="weather--upper-data">
-      <div class="location">Philippines</div>
-      <div class="temperature">{{ 14.4 | number : "1.0-0" }}&#8451;</div>
+      <div class="location">{{ weatherData.location.city }}</div>
+      <div class="country">
+        {{ weatherData.location.country }}
+      </div>
+      <div class="temperature">
+        {{
+          weatherData.current_observation.condition.temperature
+            | number : "1.0-0"
+        }}&#8451;
+      </div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="situation flex-column">
+        <p>{{ weatherData.current_observation.condition.text }}</p>
+      </div>
     </div>
   </div>
 
@@ -17,45 +49,47 @@
     <div class="weather--lower-info">
       <div class="info--content">
         <div class="info--content-image">
-          <img src="../assets/cold-temp.png" alt="cold temperature" />
-          <span>min</span>
+          <img src="../assets/sunrise.png" alt="cold temperature" />
+          <span>sunrise</span>
         </div>
 
         <div class="info--content-value">
-          <span>10&#8451;</span>
+          <span>{{ weatherData.current_observation.astronomy.sunrise }}</span>
         </div>
       </div>
 
       <div class="info--content">
         <div class="info--content-image">
-          <img src="../assets/hot-temp.png" alt="cold temperature" />
-          <span>max</span>
+          <img src="../assets/sea.png" alt="cold temperature" />
+          <span>sunset</span>
         </div>
 
         <div class="info--content-value">
-          <span>30&#8451;</span>
+          <span>{{ weatherData.current_observation.astronomy.sunset }}</span>
         </div>
       </div>
 
       <div class="info--content">
         <div class="info--content-image">
-          <img src="../assets/UVRay.png" alt="cold temperature" />
-          <span>UV Ray</span>
+          <img src="../assets/wind.png" alt="cold temperature" />
+          <span>humidity</span>
         </div>
 
         <div class="info--content-value">
-          <span>77%</span>
+          <span>{{ weatherData.current_observation.atmosphere.humidity }}</span>
         </div>
       </div>
 
       <div class="info--content">
         <div class="info--content-image">
-          <img src="../assets/rain.png" alt="cold temperature" />
-          <span>rain</span>
+          <img src="../assets/shared-vision.png" alt="cold temperature" />
+          <span>vision</span>
         </div>
 
         <div class="info--content-value">
-          <span>11km/h</span>
+          <span>{{
+            weatherData.current_observation.atmosphere.visibility
+          }}</span>
         </div>
       </div>
     </div>

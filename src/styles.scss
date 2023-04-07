@@ -22,3 +22,19 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.line {
+  width: 100px;
+  height: 5px;
+  border-top: 2px dashed white;
+  line-height: 80%;
+}
